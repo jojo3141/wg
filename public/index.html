@@ -5,27 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Household Jobs</title>
     <style>
-        html {
-    height: 100%;
-    background-image: url('background.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed; /* Ensures the background is fixed across all browsers */
-}
+        .background-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: url('background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: -1; /* Keeps it behind all other elements */
+        }
 
-body {
-    font-family: "Roboto", serif;
-    font-style: normal;
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: "Roboto", serif;
+            height: 100%;
+            overflow-x: hidden;
+        }
 
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    min-height: 100vh;                 /* Ensures body covers the full height */
-    overflow-y: scroll;                /* Enables vertical scrolling */
-    margin: 0;
-    background-color: rgba(255, 255, 255, 0.1); /* Optional overlay */
-}
+        body {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            min-height: 100vh;
+            overflow-y: scroll; /* Enable vertical scrolling */
+            position: relative; /* Necessary to allow scrolling over the background */
+        }
 
 
 .nameButton {
@@ -159,6 +167,8 @@ body {
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="background-overlay"></div>
+
     <!-- Each person's job section -->
     <div id="Noella" class="person-section">
         <div class="person-name">Noella</div>
