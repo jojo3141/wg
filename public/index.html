@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Household Jobs</title>
     <style>
+        html {
+    height: 100%;                           /* Ensure full-page height */
+    background-attachment: fixed;           /* Apply fixed behavior to HTML instead */
+}
         body {
     font-family: "Roboto", serif;
     font-style: normal;
@@ -14,12 +18,12 @@
     justify-content: space-between;
 
     background-image: url('background.jpg');
-    background-size: cover;            /* Ensures the image covers the entire screen */
-    background-position: center;       /* Centers the image */
-    background-repeat: no-repeat;      /* Prevents the image from repeating */
-    background-attachment: fixed;      /* Fixes the background position even when scrolling */
+    background-size: cover;                 /* Cover the entire screen */
+    background-position: center;            /* Center the image */
+    background-repeat: no-repeat;           /* Prevent repeating */
+    background-attachment: scroll;          /* Set to scroll to fix Safari issue */
+    overflow: hidden;                       /* Helps in ensuring no unwanted scrollbars */
     
-    /* Adding a white blur overlay */
 }
 
 
