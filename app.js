@@ -9,7 +9,7 @@ const fs = require('fs');
 
 // Initialize Express app
 const app = express();
-const port = process.env.PORT || 3000;
+app.listen(3000);
 
 // MySQL database connection configuration using environment variables
 const connection = mysql.createConnection({
@@ -131,6 +131,6 @@ function calculateNextMonday(lastDone, weeksToNext) {
 
 
 // Start the server
-app.listen(port, () => {
-    console.log(`Server is running on http://localhost:${port}`);
-});
+//app.listen(port, () => {
+    //console.log(`Server is running on http://localhost:${port}`);
+//});
