@@ -6,24 +6,25 @@
     <title>Household Jobs</title>
     <style>
         html {
-    height: 100%;                           /* Ensure full-page height */
-    background-attachment: fixed;           /* Apply fixed behavior to HTML instead */
+    height: 100%;
+    background-image: url('background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Ensures the background is fixed across all browsers */
 }
-        body {
+
+body {
     font-family: "Roboto", serif;
     font-style: normal;
 
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-
-    background-image: url('background.jpg');
-    background-size: cover;                 /* Cover the entire screen */
-    background-position: center;            /* Center the image */
-    background-repeat: no-repeat;           /* Prevent repeating */
-    background-attachment: scroll;          /* Set to scroll to fix Safari issue */
-    overflow: hidden;                       /* Helps in ensuring no unwanted scrollbars */
-    
+    min-height: 100vh;                 /* Ensures body covers the full height */
+    overflow-y: scroll;                /* Enables vertical scrolling */
+    margin: 0;
+    background-color: rgba(255, 255, 255, 0.1); /* Optional overlay */
 }
 
 
@@ -68,8 +69,8 @@
     font-weight: bold;
     text-align: center;
     margin-bottom: 10px;
-    text-shadow: 9px 9px 18px rgba(0, 0, 0, 0.742); /* Adjust the values as needed */
-    text-shadow: -9px -9px 18px rgba(0, 0, 0, 0.742); /* Adjust the values as needed */
+    text-shadow: 0px 0px 40px rgb(0, 0, 0); /* Adjust the values as needed */
+
     animation: slideInFromTop 0.2s ease-out forwards; /* 1s duration, ease-out for smooth effect */
     opacity: 0;                       
     animation-delay: 0.01s;  
