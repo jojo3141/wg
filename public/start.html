@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Five Buttons</title>
+    <style>
+        .bubble-container {
+            background-image: url('background.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        .bubble-container button {
+            background-color: rgba(0, 0, 0, 0.5); /* Transparent overlay */
+            border: none;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+            margin: 10px auto;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="bubble-container">
+        <button onclick="redirectToName('Jeanne')">Jeanne</button>
+        <button onclick="redirectToName('Noella')">Noella</button>
+        <button onclick="redirectToName('Yaiza')">Yaiza</button>
+        <button onclick="redirectToName('Franek')">Franek</button>
+        <button onclick="redirectToName('Josia')">Josia</button>
+    </div>
+
+    <script>
+        function redirectToName(name) {
+            window.location.href = "/" + name;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+[
+    {"title":"Wäsche", "description":"Lappen, Abtrocknungstuch ect. austauschen und waschen", "weeks":2, "person":"Noella"}, 
+    {"title":"Boden saugen und feucht putzen", "description":"", "weeks":1, "person":"Noella"},
+
+    {"title":"Bad putzen", "description":"beide WCs und Lavabos putzen und Spiegel und Boden", "weeks":1, "person":"Jeanne"},
+    
+    {"title":"Müll", "description":"Müll leeren, Glas & Alu entsorgen, Kompost leeren", "weeks":1, "person":"Josia"}, 
+
+    {"title":"Kochen", "description":"", "weeks":1, "person":"Yaiza"},
+
+
+    {"title":"Küche putzen", "description":"Schränke aufräumen", "weeks":2, "person":"Franek"},
+    {"title":"Ofen putzen", "description":"", "weeks":4, "person":"Franek"}, 
+
+
+    {"title":"Kühlschrank", "description":"", "weeks":4, "person":"Franek"}
+
+
+
+    
+]

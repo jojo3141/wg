@@ -1,0 +1,17 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "sql7.freesqldatabase.com",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "myDatabase",
+            "database": "sql7739902",
+            "username": "sql7739902"
+        }
+    ]
+}

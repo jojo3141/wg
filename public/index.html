@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Household Jobs</title>
+    <style>
+        body {
+    font-family: "Roboto", serif;
+    font-style: normal;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    background-image: url('background.jpg');
+    background-size: cover;            /* Ensures the image covers the entire screen */
+    background-position: center;       /* Centers the image */
+    background-repeat: no-repeat;      /* Prevents the image from repeating */
+    background-attachment: fixed;      /* Fixes the background position even when scrolling */
+    
+    /* Adding a white blur overlay */
+    backdrop-filter: blur(0px);        /* Creates the blur effect */
+    background-color: rgba(255, 255, 255, 0.1); /* Adds a white color with 10% opacity */
+}
+
+
+.nameButton {
+    margin-top: 15%;      
+    font-size: 50px;
+    padding: 14px;
+    color: black;
+    background-color: rgba(255, 255, 255, 0.927);
+    border-radius:18px;
+    box-shadow: 3px 3px 5px rgba(255, 255, 255, 0.829);
+    border: 1.5px solid rgb(190, 190, 190);
+    display: none;
+    
+}
+#buttonDiv {
+    padding-top: 5%;
+    justify-items: center;
+    margin: auto;
+    height: 60%;
+    width: 80%;
+}
+
+
+.person-section {
+    width: 90%;
+    background-color: transparent;
+    margin: 0 auto; /* Center horizontally */
+}
+.person-name {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 55px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+    text-shadow: 9px 9px 18px rgba(0, 0, 0, 0.742); /* Adjust the values as needed */
+    text-shadow: -9px -9px 18px rgba(0, 0, 0, 0.742); /* Adjust the values as needed */
+}
+        .tasks {
+            background-color: transparent;
+        }
+        .job {
+            margin-bottom: 20px;  /* Add some space between jobs */
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.927);
+            border-radius:8px;
+            box-shadow: 3px 3px 5px rgba(255, 255, 255, 0.829);
+            position:relative;
+            border: 1.5px solid rgb(190, 190, 190);
+        }
+
+        .description {
+            color: rgb(116, 116, 116);
+            font-size: 18px;
+
+        }
+
+        .job .deadline {
+            color: red;
+        }
+        .done-btn {
+    height: 30px;
+    width: 50px;
+    background-color: #00ac06ad;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 15px; /* Rounded edges */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+    right:5px;
+    bottom: 5px;
+    position: absolute;
+}
+.jobTitle {
+    font-size: 28px;
+}
+
+.done-btn:hover {
+    background-color: #007e06;
+}
+
+
+
+        .faded {
+            opacity: 0.5;
+            text-decoration: line-through;
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Each person's job section -->
+    <div id="Noella" class="person-section">
+        <div class="person-name">Noella</div>
+        <div class="tasks"></div>
+    </div>
+    
+    <div id="Jeanne" class="person-section">
+
+        <div class="person-name">Jeanne</div>
+        <div class="tasks"></div>
+    </div>
+    
+    <div id="Josia" class="person-section">
+        <div class="person-name">Josia</div>
+        <div class="tasks"></div>
+    </div>
+    
+    <div id="Yaiza" class="person-section">
+        <div class="person-name">Yaiza</div>
+        <div class="tasks"></div>
+    </div>
+    
+    <div id="Franek" class="person-section">
+        <div class="person-name">Franek</div>
+        <div class="tasks"></div>
+    </div>
+
+    <div id="buttonDiv" >
+        <button id="Noella_Button" class="nameButton">Noella</button>
+        <button id="Jeanne_Button" class="nameButton">Jeanne</button>
+        <button id="Yaiza_Button" class="nameButton">Yaiza</button>
+        <button id="Franek_Button" class="nameButton">Franek</button>
+        <button id="Josia_Button" class="nameButton">Josia</button>    
+    </div>
+    
+
+    <script src="main.js"></script>
+    <script src="
+    https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js
+    "></script>
+</body>
+</html>
