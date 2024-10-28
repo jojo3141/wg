@@ -12,6 +12,15 @@ const fs = require('fs');
 const app = express();
 app.listen(3000);
 
+// Make a request to "https://google.com" in parallel
+axios.get(process.env.DB_MAINTENANCE_URL)
+.then(response => {
+    console.log("Request to DB_MAINTENANCE_URL was successful");
+})
+.catch(error => {
+    console.error("Request to DB_MAINTENANCE_URL failed:", error);
+});
+
 // MySQL database connection configuration using environment variables
 const connection = mysql.createConnection({
     host: process.env.DB_HOST,     // MySQL host from .env
@@ -93,15 +102,15 @@ app.get('/jobs', (req, res) => {
             }
         });
 
-
-        // Make a request to "https://google.com" in parallel
-        axios.get(process.env.DB_MAINTENANCE_URL)
-            .then(response => {
-                console.log("Request to DB_MAINTENANCE_URL was successful");
-            })
-            .catch(error => {
-                console.error("Request to DB_MAINTENANCE_URL failed:", error);
-            });
+// Make a request to "https://google.com" in parallel
+axios.get(process.env.DB_MAINTENANCE_URL)
+.then(response => {
+    console.log("Request to DB_MAINTENANCE_URL was successful");
+})
+.catch(error => {
+    console.error("Request to DB_MAINTENANCE_URL failed:", error);
+});
+        
 
 
         res.json(results);
