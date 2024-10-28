@@ -1,5 +1,6 @@
 // Correctly load dotenv package and configure it
 require('dotenv').config({ path: './credentials.env' });  // Using path to specify a custom env file
+const axios = require('axios'); // Import axios at the top
 
 const express = require('express');
 const path = require('path');
@@ -30,7 +31,7 @@ connection.connect((err) => {
     console.log('Connected to MySQL database');
 });
 
-const people = ['Noella', 'Jeanne', 'Josia', 'Yaiza', 'Franek'];
+const people = ['Jeanne', 'Noella', 'Josia', 'Franek', 'Yaiza'];
 
 // Serve static files (like index.html) from the public directory
 app.use(express.static(path.join(__dirname, 'public')));
@@ -91,6 +92,17 @@ app.get('/jobs', (req, res) => {
                 job.deadline = 'No deadline';  
             }
         });
+
+
+        // Make a request to "https://google.com" in parallel
+        axios.get(process.env.DB_MAINTENANCE_URL)
+            .then(response => {
+                console.log("Request to DB_MAINTENANCE_URL was successful");
+            })
+            .catch(error => {
+                console.error("Request to DB_MAINTENANCE_URL failed:", error);
+            });
+
 
         res.json(results);
     });
