@@ -27,15 +27,16 @@ const pool = mysql.createPool({
 
 
 
-
-// Connect to database
-/* pool.connect((err) => {
+// Test Connection
+pool.getConnection((err, connection) => {
     if (err) {
-        console.error('Error connecting to database:', err);
-        return;
+        console.error("❌ Error connecting to database:", err);
+    } else {
+        console.log("✅ Connected successfully to database");
+        connection.release(); // Release the connection back to the pool
     }
-    console.log('Connected successfully to database');
-}); */
+});
+
 
 const people = ['Jeanne', 'Noella', 'Josia', 'Franek', 'Livia'];
 
@@ -103,17 +104,7 @@ app.get('/jobs', (req, res) => {
         res.json(results);
     });
 });
- 
-/* const query = 'SELECT * FROM jobs';
-pool.query(query, (err, results) => {
-    if (err) {
-        console.error("❌ Database query error:", err);
-        res.status(500).json({ error: "Error fetching jobs", details: err.message });
-        return;
-    }
-    console.log("✅ Query successful:", results);
-    res.json(results);
-}); */
+
 
 
 
