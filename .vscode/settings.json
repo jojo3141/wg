@@ -12,6 +12,19 @@
             "name": "myDatabase",
             "database": "sql7739902",
             "username": "sql7739902"
+        },
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "sql.freedb.tech",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "FreeDB",
+            "username": "freedb_jojo3141",
+            "database": "freedb_DB314159"
         }
     ]
 }

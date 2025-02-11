@@ -10,7 +10,6 @@ const fs = require('fs');
 
 // Initialize Express app
 const app = express();
-//const PORT = 3001;
 app.listen(3000);
 
 
@@ -57,9 +56,15 @@ app.post('/update-job/:id', (req, res) => {
     const nextPersonIndex = (currentPersonIndex + 1) % people.length;
     const nextPerson = people[nextPersonIndex];
 
+    console.log("id:", jobId);
+    console.log("currentPerson:", person);
+    console.log("nextPerson", nextPerson);
+    console.log("last_done:", last_done);
+
     const query = `UPDATE jobs SET person = ?, last_done = ? WHERE id = ?`;
-    connection.query(query, [nextPerson, last_done, jobId], (err, result) => {
+    pool.query(query, [nextPerson, last_done, jobId], (err, result) => {
         if (err) {
+            console.log(err);
             res.status(500).send('Error updating job in database');
             return;
         }
@@ -143,7 +148,8 @@ function calculateNextMonday(lastDone, weeksToNext) {
 
 
 // Start the server
-
-/* app.listen(PORT, () => {
+// remove for deploying!
+const PORT = 3001;
+app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
-}); */
+});

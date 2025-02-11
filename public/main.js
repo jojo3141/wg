@@ -4,7 +4,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
 const STORAGE_PLACE = "placeInLocalStorage";
-const ALL_NAMES = ["Franek", "Josia", "Yaiza", "Noella", "Jeanne"]
+const ALL_NAMES = ["Franek", "Josia", "Livia", "Noella", "Jeanne"]
 
 const username = localStorage.getItem(STORAGE_PLACE);
 
@@ -55,7 +55,7 @@ const username = localStorage.getItem(STORAGE_PLACE);
             'Noella': [],
             'Jeanne': [],
             'Josia': [],
-            'Yaiza': [],
+            'Livia': [],
             'Franek': []
         };
     
@@ -149,7 +149,7 @@ const username = localStorage.getItem(STORAGE_PLACE);
             },
             body: JSON.stringify({
                 person: job.person,        // Send the current person doing the job
-                last_done: today.toISOString()  // Set last_done to today
+                last_done: formatDateTime(new Date())  // Set last_done to today
             })
         })
         .then(response => response.json())
@@ -193,4 +193,17 @@ function triggerFireworks() {
         spread: 160,
         origin: { y: 0.6 }
     });
+}
+
+function formatDateTime(date) {
+    const pad = (num) => num.toString().padStart(2, "0");
+
+    const year = date.getFullYear();
+    const month = pad(date.getMonth() + 1); // Months are 0-based
+    const day = pad(date.getDate());
+    const hours = pad(date.getHours());
+    const minutes = pad(date.getMinutes());
+    const seconds = pad(date.getSeconds());
+
+    return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
 }
