@@ -100,7 +100,7 @@ app.get('/jobs', (req, res) => {
 });*/
 
 app.get('/jobs', async (req, res) => {
-    try {
+    /* try {
         console.log("📡 Incoming request to /jobs");
         const connection = await getConnection();
         console.log("✅ Connected to database");
@@ -113,7 +113,9 @@ app.get('/jobs', async (req, res) => {
     } catch (err) {
         console.error("❌ Error in /jobs:", err);
         res.status(500).json({ error: "Error fetching jobs", details: err.message });
-    }
+    } */
+    const results = {text:"helloWorld"};
+    res.json(results);
 });
 
 
@@ -152,7 +154,7 @@ function calculateNextMonday(lastDone, weeksToNext) {
 
 
 // Start the server
-/*
+
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
-});*/
+});
