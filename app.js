@@ -95,10 +95,6 @@ app.get('/jobs', (req, res) => {
             }
         });
 
-
-        
-
-
         res.json(results);
     });
 });
@@ -138,6 +134,7 @@ function calculateNextMonday(lastDone, weeksToNext) {
 
 
 // Start the server
+/*
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
-});
+});*/
