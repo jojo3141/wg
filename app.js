@@ -24,13 +24,13 @@ const connection = mysql.createConnection({
 
 
 
-// Connect to MySQL database
+// Connect to database
 connection.connect((err) => {
     if (err) {
-        console.error('Error connecting to MySQL database:', err);
+        console.error('Error connecting to database:', err);
         return;
     }
-    console.log('Connected to MySQL database');
+    console.log('Connected successfully to database');
 });
 
 const people = ['Jeanne', 'Noella', 'Josia', 'Franek', 'Livia'];
@@ -67,7 +67,7 @@ app.post('/update-job/:id', (req, res) => {
         });
     });
 });
-/*
+
 app.get('/jobs', (req, res) => {
     const query = 'SELECT * FROM jobs';
     connection.query(query, (err, results) => {
@@ -76,7 +76,7 @@ app.get('/jobs', (req, res) => {
             return;
         }
 
-        const today = new Date();
+        /* const today = new Date();
         
         results.forEach(job => {
             if (job.last_done) {
@@ -93,13 +93,13 @@ app.get('/jobs', (req, res) => {
             } else {
                 job.deadline = 'No deadline';  
             }
-        });
+        }); */
 
         res.json(results);
     });
-});*/
+});
 
-app.get('/jobs', async (req, res) => {
+//app.get('/jobs', async (req, res) => {
     /* try {
         console.log("📡 Incoming request to /jobs");
         const connection = await getConnection();
@@ -114,9 +114,9 @@ app.get('/jobs', async (req, res) => {
         console.error("❌ Error in /jobs:", err);
         res.status(500).json({ error: "Error fetching jobs", details: err.message });
     } */
-    const results = {text:"helloWorld"};
-    res.json(results);
-});
+    //const results = {text:"helloWorld"};
+    //res.json(results);
+//});
 
 
 // Helper function to calculate the next Monday, starting the week on Tuesday
