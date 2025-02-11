@@ -10,16 +10,9 @@ const fs = require('fs');
 
 // Initialize Express app
 const app = express();
+const PORT = 3001;
 app.listen(3000);
 
-// Make a request to "https://google.com" in parallel
-axios.get(process.env.DB_MAINTENANCE_URL)
-.then(response => {
-    console.log("Request to DB_MAINTENANCE_URL was successful");
-})
-.catch(error => {
-    console.error("Request to DB_MAINTENANCE_URL failed:", error);
-});
 
 // MySQL database connection configuration using environment variables
 const connection = mysql.createConnection({
@@ -40,7 +33,7 @@ connection.connect((err) => {
     console.log('Connected to MySQL database');
 });
 
-const people = ['Jeanne', 'Noella', 'Josia', 'Franek', 'Yaiza'];
+const people = ['Jeanne', 'Noella', 'Josia', 'Franek', 'Livia'];
 
 // Serve static files (like index.html) from the public directory
 app.use(express.static(path.join(__dirname, 'public')));
@@ -102,14 +95,7 @@ app.get('/jobs', (req, res) => {
             }
         });
 
-// Make a request to "https://google.com" in parallel
-axios.get(process.env.DB_MAINTENANCE_URL)
-.then(response => {
-    console.log("Request to DB_MAINTENANCE_URL was successful");
-})
-.catch(error => {
-    console.error("Request to DB_MAINTENANCE_URL failed:", error);
-});
+
         
 
 
@@ -152,6 +138,6 @@ function calculateNextMonday(lastDone, weeksToNext) {
 
 
 // Start the server
-//app.listen(port, () => {
-    //console.log(`Server is running on http://localhost:${port}`);
-//});
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+});
