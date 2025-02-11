@@ -67,7 +67,7 @@ app.post('/update-job/:id', (req, res) => {
         });
     });
 });
-
+/*
 app.get('/jobs', (req, res) => {
     const query = 'SELECT * FROM jobs';
     connection.query(query, (err, results) => {
@@ -97,7 +97,25 @@ app.get('/jobs', (req, res) => {
 
         res.json(results);
     });
+});*/
+
+app.get('/jobs', async (req, res) => {
+    try {
+        console.log("📡 Incoming request to /jobs");
+        const connection = await getConnection();
+        console.log("✅ Connected to database");
+
+        const [results] = await connection.execute('SELECT * FROM jobs');
+        console.log("📊 Fetched jobs:", results);
+
+        await connection.end();
+        res.json(results);
+    } catch (err) {
+        console.error("❌ Error in /jobs:", err);
+        res.status(500).json({ error: "Error fetching jobs", details: err.message });
+    }
 });
+
 
 // Helper function to calculate the next Monday, starting the week on Tuesday
 function calculateNextMonday(lastDone, weeksToNext) {
