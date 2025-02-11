@@ -72,6 +72,7 @@ app.get('/jobs', (req, res) => {
     const query = 'SELECT * FROM jobs';
     connection.query(query, (err, results) => {
         if (err) {
+            console.log(err);
             res.status(500).send('Error fetching jobs from database');
             return;
         }
