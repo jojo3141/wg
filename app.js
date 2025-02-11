@@ -15,23 +15,27 @@ app.listen(3000);
 
 
 // MySQL database connection configuration using environment variables
-const connection = mysql.createConnection({
-    host: process.env.DB_HOST,     // MySQL host from .env
-    user: process.env.DB_USER,     // MySQL username from .env
-    password: process.env.DB_PASSWORD, // MySQL password from .env
-    database: process.env.DB_NAME  // MySQL database name from .env
+const pool = mysql.createPool({
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    waitForConnections: true,
+    connectionLimit: 10, // Limits simultaneous connections
+    queueLimit: 0
 });
 
 
 
+
 // Connect to database
-connection.connect((err) => {
+/* pool.connect((err) => {
     if (err) {
         console.error('Error connecting to database:', err);
         return;
     }
     console.log('Connected successfully to database');
-});
+}); */
 
 const people = ['Jeanne', 'Noella', 'Josia', 'Franek', 'Livia'];
 
@@ -70,14 +74,14 @@ app.post('/update-job/:id', (req, res) => {
 
 app.get('/jobs', (req, res) => {
     const query = 'SELECT * FROM jobs';
-    connection.query(query, (err, results) => {
+    pool.query(query, (err, results) => {
         if (err) {
             console.log(err);
             res.status(500).send('Error fetching jobs from database');
             return;
         }
 
-        /* const today = new Date();
+        const today = new Date();
         
         results.forEach(job => {
             if (job.last_done) {
@@ -94,30 +98,23 @@ app.get('/jobs', (req, res) => {
             } else {
                 job.deadline = 'No deadline';  
             }
-        }); */
+        });
 
         res.json(results);
     });
 });
-
-//app.get('/jobs', async (req, res) => {
-    /* try {
-        console.log("📡 Incoming request to /jobs");
-        const connection = await getConnection();
-        console.log("✅ Connected to database");
-
-        const [results] = await connection.execute('SELECT * FROM jobs');
-        console.log("📊 Fetched jobs:", results);
-
-        await connection.end();
-        res.json(results);
-    } catch (err) {
-        console.error("❌ Error in /jobs:", err);
+ 
+/* const query = 'SELECT * FROM jobs';
+pool.query(query, (err, results) => {
+    if (err) {
+        console.error("❌ Database query error:", err);
         res.status(500).json({ error: "Error fetching jobs", details: err.message });
-    } */
-    //const results = {text:"helloWorld"};
-    //res.json(results);
-//});
+        return;
+    }
+    console.log("✅ Query successful:", results);
+    res.json(results);
+}); */
+
 
 
 // Helper function to calculate the next Monday, starting the week on Tuesday
