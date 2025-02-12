@@ -1,24 +1,22 @@
 [
-    {"title":"Wäsche", "description":"Lappen, Abtrocknungstuch, Badezimmer-Teppich ect. austauschen und 60°C+ waschen", "weeks":2, "person":"Noella"}, 
-    {"title":"Boden saugen und feucht putzen", "description":"", "weeks":1, "person":"Noella"},
+    {"title":"Wäsche", "description":"Lappen, Abtrocknungstücher, Badezimmer-Teppich 60+°C waschen", "weeks":2, "person":"Noella"}, 
+    {"title":"Boden staubsaugen und feucht aufnehmen", "description":"", "weeks":1, "person":"Noella"},
 
 
-    {"title":"Bad putzen", "description":"beide WCs, Lavabos, Spiegel, Boden, Fugen, evtl. Wände, Abfluss", "weeks":1, "person":"Jeanne"},
+    {"title":"Bad putzen", "description":"beide WCs, Lavabos, Spiegel, Boden, Abfluss, (ev. Wände)", "weeks":1, "person":"Jeanne"},
     
-    {"title":"Müll", "description":"Müll leeren, beide Mülleimer in den Badezimmern, Glas & Alu & PET entsorgen, Kompost leeren, evtl. Müllsäcke/Haushaltspapier kaufen", "weeks":1, "person":"Josia"}, 
+    {"title":"Müll", "description":"Müll leeren, (Müll im Badezimmer), Glas/Alu/PET entsorgen, Kompost leeren, evtl. Zürisäcke/Haushaltspapier kaufen", "weeks":1, "person":"Josia"}, 
 
-    {"title":"Kochen", "description":"evtl. leere Sachen nachkaufen (Öl check)", "weeks":1, "person":"Yaiza"},
+    {"title":"Kochen", "description":"ev. leere Sachen nachkaufen", "weeks":1, "person":"Livia"},
 
 
-    {"title":"Küche oben putzen", "description":"Regal ausräumen und abstauben;", "weeks":2, "person":"Franek"},
-    {"title":"Küche unten putzen", "description":"evtl. Gestell rechts putzen", "weeks":2, "person":"Franek"},
+    {"title":"Küche oben putzen", "description":"Ablage ausräumen und abstauben", "weeks":2, "person":"Franek"},
+    {"title":"Küche unten putzen", "description":"ev. herumliegende Sachen versorgen", "weeks":2, "person":"Franek"},
 
     {"title":"Ofen putzen und Spülmaschienen Sieb", "description":"", "weeks":4, "person":"Franek"}, 
 
 
-    {"title":"Kühlschrank", "description":"Gefrierfach Eis auftauen", "weeks":4, "person":"Franek"}
-
-
+    {"title":"Kühlschrank", "description":"ev. Gefrierfach Eis auftauen", "weeks":4, "person":"Franek"}
 
     
 ]

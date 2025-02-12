@@ -111,40 +111,20 @@ app.get('/jobs', (req, res) => {
 });
 
 
-
-
-// Helper function to calculate the next Monday, starting the week on Tuesday
+// Simplified function to calculate the next Monday and add weeksToNext weeks
 function calculateNextMonday(lastDone, weeksToNext) {
-    // Adjust the last done date to be the next Tuesday if the job was done on a Monday
-    const dayOfWeek = lastDone.getUTCDay();  // Get day of the week (0 = Sunday, 1 = Monday, ..., 6 = Saturday)
+    let date = new Date(lastDone);
 
-    // Move lastDone to the nearest Tuesday if it's before or on a Monday
-    let daysToAdd = 0;
-    if (dayOfWeek === 0) {
-        daysToAdd = 2; // Sunday, move to Tuesday
-    } else if (dayOfWeek === 1) {
-        daysToAdd = 1; // Monday, move to Tuesday
-    } else if (dayOfWeek > 1) {
-        daysToAdd = 0; // Already Tuesday or later, no need to shift
-    }
+    // Move to the next Monday
+    const dayOfWeek = date.getUTCDay();
+    const daysUntilNextMonday = (8 - dayOfWeek) % 7 || 7; // Ensures at least 1 day forward
+    date.setUTCDate(date.getUTCDate() + daysUntilNextMonday);
 
-    // Move the date to the following Tuesday, then add the number of weeks
-    const adjustedLastDone = new Date(lastDone);
-    adjustedLastDone.setUTCDate(lastDone.getUTCDate() + daysToAdd + (weeksToNext * 7));
+    // Add the specified number of weeks
+    date.setUTCDate(date.getUTCDate() + ((weeksToNext-1) * 7));
 
-    // Now calculate the nearest Monday after that date
-    const adjustedDayOfWeek = adjustedLastDone.getUTCDay();
-    const daysUntilNextMonday = (8 - adjustedDayOfWeek) % 7; // Days until Monday (1)
-
-    // Set the date to the following Monday
-    adjustedLastDone.setUTCDate(adjustedLastDone.getUTCDate() + daysUntilNextMonday);
-
-    return adjustedLastDone;
+    return date;
 }
-
-
-
-
 
 
 // Start the server
