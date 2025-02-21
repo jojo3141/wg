@@ -42,7 +42,7 @@ function addJob(title, person, weeks, last_done, description) {
 }
 
 // Function to delete all entries from the 'jobs' table
-function clearJobsTable(callback) {
+function clearJobsTable() {
     const query = "DELETE FROM jobs";
 
     pool.query(query, (err, result) => {

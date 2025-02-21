@@ -109,7 +109,10 @@ const username = localStorage.getItem(STORAGE_PLACE);
                 // Create the deadline element
                 const deadlineElement = document.createElement('span');
                 deadlineElement.textContent = `${job.deadline} days left`;
-    
+                if (job.deadline < 0) {
+                    deadlineElement.style.color = 'red';
+                }
+                
                 // Create the "Done" button
                 const doneButton = document.createElement('button');
                 doneButton.textContent = 'Done';
